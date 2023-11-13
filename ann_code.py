@@ -107,6 +107,12 @@ class Network:
         test_results = [(np.argmax(self.feedforward(x)), y) for (x, y) in test_data]
 
         return sum(int(x == y) for (x, y) in test_results)
+    
+    def cost_derivative(self, output_activations, y):
+        '''
+        Vector of partial derivatives of C_x
+        '''
+        return (output_activations - y)
 
 
 
